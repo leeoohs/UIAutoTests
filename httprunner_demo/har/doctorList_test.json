@@ -1,0 +1,82 @@
+{
+    "config": {
+        "name": "testcase description"
+    },
+    "teststeps": [
+        {
+            "name": "",
+            "request": {
+                "method": "POST",
+                "url": "https://b52.xiaoluyy.com/patientApi/v2/search/doctor/list",
+                "params": {
+                    "appVersion": "8.0.44",
+                    "bigDataEnterType": "0",
+                    "bigdataActId": "",
+                    "channel": "3",
+                    "deviceModel": "IPHONE",
+                    "os": "ios",
+                    "osVersion": "17.4",
+                    "pver": "3.8.2",
+                    "specificModel": "iPhone 13 Pro Max<iPhone14,3>",
+                    "version": "3.8.2"
+                },
+                "headers": {
+                    ":authority": "b52.xiaoluyy.com",
+                    ":method": "POST",
+                    ":path": "/patientApi/v2/search/doctor/list?os=ios&osVersion=17.4&appVersion=8.0.44&deviceModel=IPHONE&specificModel=iPhone%2013%20Pro%20Max%3CiPhone14,3%3E&channel=3&version=3.8.2&bigdataActId=&bigDataEnterType=0&pver=3.8.2",
+                    ":scheme": "https",
+                    "accept": "application/json, text/plain, */*",
+                    "accept-encoding": "gzip,compress,br,deflate",
+                    "channel": "3",
+                    "content-length": "303",
+                    "content-type": "application/json",
+                    "op-sign-list": "ticket,signTime",
+                    "referer": "https://servicewechat.com/wx632ea5325062559e/0/page-frame.html",
+                    "signsecret": "bf7d318ca8208ffd2996816f9ca2ef75",
+                    "signtime": "1714637394194",
+                    "system": "6",
+                    "ticket": "a62fd6ee853f5275145599522e761e72",
+                    "user-agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.44(0x18002c2f) NetType/WIFI Language/zh_CN",
+                    "x-requested-with": "XMLHttpRequest"
+                },
+                "cookies": {
+                    "JSESSIONID": "59CB341ECCA565511D60ABD6F6542095",
+                    "ticket": "a62fd6ee853f5275145599522e761e72"
+                },
+                "body": {
+                    "bigDataPageName": "index",
+                    "local": "{\"nation\":\"中国\",\"province\":\"北京市\",\"city\":\"北京市\",\"district\":\"朝阳区\",\"street\":\"太阳宫中路\",\"street_number\":\"19号院\",\"latitude\":39.96959255642361,\"longitude\":116.44304796006945}",
+                    "office": "-1",
+                    "pageNo": 1,
+                    "pageSize": 10
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 200,
+                    "msg": "assert response status code"
+                },
+                {
+                    "check": "headers.\"Content-Type\"",
+                    "assert": "equals",
+                    "expect": "application/json;charset=UTF-8",
+                    "msg": "assert response header Content-Type"
+                },
+                {
+                    "check": "body.code",
+                    "assert": "equals",
+                    "expect": 1000,
+                    "msg": "assert response body code"
+                },
+                {
+                    "check": "body.message",
+                    "assert": "equals",
+                    "expect": "success",
+                    "msg": "assert response body message"
+                }
+            ]
+        }
+    ]
+}

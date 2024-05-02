@@ -1,0 +1,72 @@
+{
+    "config": {
+        "name": "testcase description"
+    },
+    "teststeps": [
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "https://s.xiaoluyy.com/patientApi/common/v3p1/index",
+                "params": {
+                    "appVersion": "8.0.44",
+                    "bigDataEnterType": "0",
+                    "bigdataActId": "",
+                    "channel": "3",
+                    "deviceModel": "IPHONE",
+                    "os": "ios",
+                    "osVersion": "17.4",
+                    "pver": "3.8.4",
+                    "specificModel": "iPhone 13 Pro Max<iPhone14,3>",
+                    "version": "3.8.4"
+                },
+                "headers": {
+                    ":authority": "s.xiaoluyy.com",
+                    ":method": "GET",
+                    ":path": "/patientApi/common/v3p1/index?os=ios&osVersion=17.4&appVersion=8.0.44&deviceModel=IPHONE&specificModel=iPhone%2013%20Pro%20Max%3CiPhone14,3%3E&channel=3&version=3.8.4&bigdataActId=&bigDataEnterType=0&pver=3.8.4",
+                    ":scheme": "https",
+                    "accept": "application/json, text/plain, */*",
+                    "accept-encoding": "gzip,compress,br,deflate",
+                    "content-type": "application/json;charset=UTF-8",
+                    "op-sign-list": "ticket,signTime",
+                    "referer": "https://servicewechat.com/wx1762cf6582d6d49b/344/page-frame.html",
+                    "signsecret": "6746661228cfa40e01795f9eac2831a2",
+                    "signtime": "1714639657823",
+                    "system": "6",
+                    "ticket": "1cfcc8e8f603d199e42f057f76de949a",
+                    "user-agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.44(0x18002c2f) NetType/WIFI Language/zh_CN",
+                    "x-requested-with": "XMLHttpRequest"
+                },
+                "cookies": {
+                    "ticket": "1cfcc8e8f603d199e42f057f76de949a"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 200,
+                    "msg": "assert response status code"
+                },
+                {
+                    "check": "headers.\"Content-Type\"",
+                    "assert": "equals",
+                    "expect": "application/json;charset=UTF-8",
+                    "msg": "assert response header Content-Type"
+                },
+                {
+                    "check": "body.code",
+                    "assert": "equals",
+                    "expect": 1000,
+                    "msg": "assert response body code"
+                },
+                {
+                    "check": "body.message",
+                    "assert": "equals",
+                    "expect": "success",
+                    "msg": "assert response body message"
+                }
+            ]
+        }
+    ]
+}
